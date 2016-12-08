@@ -7,6 +7,14 @@ $resp: #303824;
 $font-family: 'Montserrat', sans-serif;
 $base-size: 10px;
 
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
 body,html{
   width: 100%; height: 100%;
   font-family: $font-family;
@@ -16,6 +24,22 @@ body,html{
 
 ul{
 	list-style: none;
+}
+
+a{
+	opacity: 1;
+	cursor: pointer;
+	@include transition(all .5s ease);
+
+	&:hover{
+		opacity: 0.8;
+		@include transition(all .5s ease);
+
+		@media (max-width: 768px){
+			opacity: initial;
+			@include transition(all .5s ease);
+		}
+	}
 }
 
 .centered-col{
@@ -125,11 +149,14 @@ ul{
 				margin-left: -1.5 * $base-size;
 				padding-top: 0;
 				padding-bottom: 0;
+				margin-top: -1 * $base-size;
+				@include transition(all .5s ease);
 
 				&.active{
 					max-height: 60 * $base-size;
 				padding-top: $base-size;
 				padding-bottom: $base-size;
+				@include transition(all .5s ease);
 				}
 			}
 
@@ -192,6 +219,14 @@ ul{
 
 		@media (max-width: 460px){
 			position: relative;
+			transform: translateY(0);
+			top: 10%;
+			@include transition(all .5s ease);
+
+			&.onactive{
+				top: 0;
+				@include transition(all .5s ease);
+			}
 		}
 	}
 
@@ -267,5 +302,10 @@ footer{
 	@media (max-width: 460px){
 		padding-left: 0;
 		padding-right: 0;
+
+		footer &{
+			padding-left: 15px;
+			padding-right: 15px;
+		}
 	}
 }

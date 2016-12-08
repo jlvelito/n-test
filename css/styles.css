@@ -8,6 +8,30 @@ body, html {
 ul {
   list-style: none; }
 
+a {
+  opacity: 1;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+  a:hover {
+    opacity: 0.8;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
+    @media (max-width: 768px) {
+      a:hover {
+        opacity: initial;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease; } }
+
 .centered-col {
   float: none;
   margin: 0 auto; }
@@ -85,11 +109,22 @@ ul {
           background: #303824;
           margin-left: -15px;
           padding-top: 0;
-          padding-bottom: 0; }
+          padding-bottom: 0;
+          margin-top: -10px;
+          -webkit-transition: all 0.5s ease;
+          -moz-transition: all 0.5s ease;
+          -ms-transition: all 0.5s ease;
+          -o-transition: all 0.5s ease;
+          transition: all 0.5s ease; }
           .header #main-nav ul.active {
             max-height: 600px;
             padding-top: 10px;
-            padding-bottom: 10px; } }
+            padding-bottom: 10px;
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease; } }
       .header #main-nav ul li {
         display: inline-block;
         padding-left: 16px; }
@@ -134,7 +169,21 @@ ul {
         padding-top: 35px; }
     @media (max-width: 460px) {
       .header .content {
-        position: relative; } }
+        position: relative;
+        transform: translateY(0);
+        top: 10%;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease; }
+        .header .content.onactive {
+          top: 0;
+          -webkit-transition: all 0.5s ease;
+          -moz-transition: all 0.5s ease;
+          -ms-transition: all 0.5s ease;
+          -o-transition: all 0.5s ease;
+          transition: all 0.5s ease; } }
   .header:after {
     display: block;
     content: " ";
@@ -187,4 +236,7 @@ footer {
 @media (max-width: 460px) {
   .container {
     padding-left: 0;
-    padding-right: 0; } }
+    padding-right: 0; }
+    footer .container {
+      padding-left: 15px;
+      padding-right: 15px; } }
