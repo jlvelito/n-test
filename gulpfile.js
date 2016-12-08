@@ -1,13 +1,16 @@
 /* File: gulpfile.js */
 
-// grab our gulp packages
+
 var gulp  = require('gulp'),
     gutil = require('gulp-util'),
+    watch = require('gulp-watch'),
     sass = require('gulp-sass');
 
-// create a default task and just log a message
+
 gulp.task('default', function() {
-  gulp.src('sass/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./css/'));
+	return watch('sass/**/*.scss', function () {
+  		gulp.src('sass/**/*.scss')
+        	.pipe(sass().on('error', sass.logError))
+        	.pipe(gulp.dest('./css/'));
+    });
 });
